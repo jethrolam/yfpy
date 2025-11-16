@@ -1045,6 +1045,7 @@ class Settings(YahooFantasyObject):
             league_premium_features (List): List of features enables as part of subscription to Yahoo Fantasy Plus or
                 Yahoo Fantasy Commissioner Plus.
             max_teams (int): The maximum number of teams allowed in the league.
+            max_games_played (int): The maximum number of games played allowed in the league per position.
             num_playoff_consolation_teams (int): The number of teams that make the consolation playoff bracket.
             num_playoff_teams (int): The number of teams that make the playoffs.
             persistent_url (str): Custom URL configured for the league that remains the same every season.
@@ -1089,6 +1090,7 @@ class Settings(YahooFantasyObject):
         self.is_auction_draft: int = self._extracted_data.get("is_auction_draft", 0)
         self.league_premium_features: List = self._extracted_data.get("league_premium_features", [])  # TODO: features?
         self.max_teams: Optional[int] = self._extracted_data.get("max_teams", None)
+        self.max_games_played: Optional[int] = self._extracted_data.get("max_games_played", None)
         self.num_playoff_consolation_teams: Optional[int] = self._extracted_data.get("num_playoff_consolation_teams",
                                                                                      None)
         self.num_playoff_teams: Optional[int] = self._extracted_data.get("num_playoff_teams", None)
