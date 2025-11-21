@@ -189,7 +189,8 @@ def convert_strings_to_numeric_equivalents(json_obj: Any) -> Union[int, float, A
     """
     if isinstance(json_obj, str):
 
-        if len(json_obj) > 1 and str.startswith(json_obj, "0"):
+        # Keep strings that start with "0" (like "01", "001") or are single character (like "1", "5")
+        if (len(json_obj) > 1 and str.startswith(json_obj, "0")) or len(json_obj) == 1:
             return json_obj
         else:
             if str.isdigit(json_obj):
